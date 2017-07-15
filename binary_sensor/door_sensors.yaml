@@ -1,0 +1,31 @@
+- platform: mqtt
+  state_topic: house/sensor/523986/state
+  name: Front Door
+  payload_on: "OPEN"
+  payload_off: "CLOSE"
+  device_class: opening
+  value_template: "{% if value_json.alarm == True %} OPEN {% else %} CLOSE {% endif %}"
+
+- platform: mqtt
+  state_topic: house/sensor/555453/state
+  name: Back Door
+  payload_on: "OPEN"
+  payload_off: "CLOSE"
+  device_class: opening
+  value_template: "{% if value_json.alarm == True %} OPEN {% else %} CLOSE {% endif %}"
+
+- platform: mqtt
+  state_topic: house/sensor/523986/state
+  name: Front Door Battery
+  payload_on: "LOW"
+  payload_off: "OFF"
+  device_class: safety
+  value_template: "{% if value_json.batteryLow == True %} LOW {% else %} HIGH {% endif %}"
+
+- platform: mqtt
+  state_topic: house/sensor/555453/state
+  name: Back Door Battery
+  payload_on: "LOW"
+  payload_off: "OFF"
+  device_class: safety
+  value_template: "{% if value_json.batteryLow == True %} LOW {% else %} HIGH {% endif %}"

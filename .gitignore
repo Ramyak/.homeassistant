@@ -99,3 +99,10 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+#home assistant
+.HA_VERSION
+deps/
+home-assistant_v2.db
+.uuid
+secrets.yaml

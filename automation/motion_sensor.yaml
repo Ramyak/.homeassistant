@@ -1,0 +1,8 @@
+# https://community.home-assistant.io/t/mqtt-binary-sensor-is-there-a-way-to-automatically-turn-off/16481/9
+- alias: motion hall
+  trigger:
+    platform: state
+    entity_id: binary_sensor.hall
+    to: 'on'
+  action:
+    service: script.timed_off

@@ -1,0 +1,27 @@
+- platform: mqtt
+  state_topic: house/sensor/146973/state
+  name: Hall
+  device_class: moving
+  value_template: "{% if value_json.isMotion == True %} ON {% else %} OFF {% endif %}"
+
+- platform: mqtt
+  state_topic: house/sensor/146685/state
+  name: hallway_1
+  device_class: moving
+  value_template: "{% if value_json.isMotion == True %} ON {% else %} OFF {% endif %}"
+
+- platform: mqtt
+  state_topic: house/sensor/146973/state
+  name: hall_battery
+  payload_on: "LOW"
+  payload_off: "OFF"
+  device_class: safety
+  value_template: "{% if value_json.batteryLow == True %} LOW {% else %} HIGH {% endif %}"
+
+- platform: mqtt
+  state_topic: house/sensor/146685/state
+  name: hallway_1_battery
+  payload_on: "LOW"
+  payload_off: "OFF"
+  device_class: safety
+  value_template: "{% if value_json.batteryLow == True %} LOW {% else %} HIGH {% endif %}"
