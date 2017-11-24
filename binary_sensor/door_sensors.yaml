@@ -1,31 +1,53 @@
 - platform: mqtt
   state_topic: house/sensor/523986/state
   name: Front Door
-  payload_on: "OPEN"
-  payload_off: "CLOSE"
+  friendly_name: Front Door (523986)
   device_class: opening
-  value_template: "{% if value_json.alarm == True %} OPEN {% else %} CLOSE {% endif %}"
+  payload_on: true
+  payload_off: false
+  value_template: '{{ value_json.alarm }}'
 
 - platform: mqtt
   state_topic: house/sensor/555453/state
   name: Back Door
-  payload_on: "OPEN"
-  payload_off: "CLOSE"
+  friendly_name: Back Door (555453)
   device_class: opening
-  value_template: "{% if value_json.alarm == True %} OPEN {% else %} CLOSE {% endif %}"
+  payload_on: true
+  payload_off: false
+  value_template: '{{ value_json.alarm }}'
+
+- platform: mqtt
+  state_topic: house/sensor/555441/state
+  name: Study Room Window
+  friendly_name: Study Room Window (555441)
+  device_class: opening
+  payload_on: true
+  payload_off: false
+  value_template: '{{ value_json.alarm }}'
 
 - platform: mqtt
   state_topic: house/sensor/523986/state
   name: Front Door Battery
-  payload_on: "LOW"
-  payload_off: "OFF"
-  device_class: safety
-  value_template: "{% if value_json.batteryLow == True %} LOW {% else %} HIGH {% endif %}"
+  friendly_name: Front Door Battery (523986)
+  device_class: plug
+  payload_on: true
+  payload_off: false
+  value_template: "{{ value_json.batteryLow  == false }}"
 
 - platform: mqtt
   state_topic: house/sensor/555453/state
   name: Back Door Battery
-  payload_on: "LOW"
-  payload_off: "OFF"
-  device_class: safety
-  value_template: "{% if value_json.batteryLow == True %} LOW {% else %} HIGH {% endif %}"
+  friendly_name: Back Door Battery (555453)
+  device_class: plug
+  payload_on: true
+  payload_off: false
+  value_template: "{{ value_json.batteryLow  == false }}"
+
+- platform: mqtt
+  state_topic: house/sensor/555441/state
+  name: Study Room Window Battery
+  friendly_name: Study Room Window Battery (555441)
+  device_class: plug
+  payload_on: true
+  payload_off: false
+  value_template: "{{ value_json.batteryLow  == false }}"

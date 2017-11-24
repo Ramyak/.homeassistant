@@ -14,9 +14,11 @@ Motion Detectors:
 Door Windows:
   - binary_sensor.front_door
   - binary_sensor.back_door
+  - binary_sensor.study_room_window
 
 Sensor batteries:
   - binary_sensor.hall_battery
   - binary_sensor.hallway_1_battery
   - binary_sensor.front_door_battery
   - binary_sensor.back_door_battery
+  - binary_sensor.study_room_window_battery
